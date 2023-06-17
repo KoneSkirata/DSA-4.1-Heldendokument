@@ -452,6 +452,8 @@ function common.schaden.parse(input)
     end
   end
   local ret = {dice = num}
+
+  -- Würfel bestimmen
   local first = string.sub(input, 1, 1)
   if first == "W" or first == "w" then
     input = string.sub(input, 2)
@@ -465,18 +467,31 @@ function common.schaden.parse(input)
   else
     tex.error("ungültige TP: '" .. orig .. "' (W/w erwartet bei '" .. first .. "')")
   end
+
+  -- early return wenn Input zuende ist
   if #input == 0 then
     ret.num = 0
     return ret
   end
+
+  -- Summand bestimmen
   first = string.sub(input, 1, 1)
   if first ~= "+" and first ~= "-" then
     tex.error("ungültige TP: '" .. orig .. "' (+/- erwartet bei '" .. first .. "')")
   end
-  ret.num = tonumber(input)
+  n_start, n_end = string.find(input, "^[%+%-][0-9]+")
+  ret.num = tonumber(string.sub(input, n_start, n_end))
   if ret.num == nil then
     tex.error("ungültige TP: '" .. orig .. "' (ungültiger Summand: '" .. input .. "')")
   end
+
+  -- Modifikator bestimmen
+  input = string.sub(input, n_end + 1)
+  if input ~= nil then
+    ret.modif = input
+  end
+
+  -- return
   return ret
 end
 
@@ -500,6 +515,9 @@ function common.schaden.render(tp)
       tex.sprint(-2, "+")
     end
     tex.sprint(-2, math.round(math.abs(tp.num)))
+  end
+  if tp.modif ~= nil then
+      tex.sprint(-2, tp.modif)
   end
 end
 
