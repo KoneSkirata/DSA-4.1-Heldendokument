@@ -115,11 +115,11 @@ function eigenschaften.links(self)
     tex.sprint(-2, self.label[e])
     tex.sprint([[\hfill]])
     for _, v in ipairs(data.Mirakel.Plus) do
-        if v == e then
-          tex.sprint([[\faPlusCircle]])
-          break
-        end
+      if v == e then
+        tex.sprint([[\scriptsize \faPlusCircle \:]])
+        break
       end
+    end
     for j=1,3 do
       tex.sprint("&")
       if j == 3 then
@@ -172,6 +172,12 @@ function eigenschaften.rechts(self)
     tex.sprint(-2, info[1])
     tex.sprint([[} \hspace*{\fill} \tiny ]])
     tex.sprint(-2, data:formula(e))
+    for _, v in ipairs(data.Mirakel.Plus) do
+      if v == e then
+        tex.sprint([[\scriptsize \faPlusCircle \:]])
+        break
+      end
+    end
     tex.sprint([[ \hspace{3pt} & \cellcolor{white}]])
     tex.sprint(-2, data:cur(e))
 
