@@ -113,6 +113,13 @@ function eigenschaften.links(self)
     tex.sprint(i == 1 and [[\Xhline{2\arrayrulewidth}]] or [[\hline]])
     tex.sprint([[\small\mansontt\bfseries]])
     tex.sprint(-2, self.label[e])
+    tex.sprint([[\hfill]])
+    for _, v in ipairs(data.Mirakel.Plus) do
+        if v == e then
+          tex.sprint([[\faPlusCircle]])
+          break
+        end
+      end
     for j=1,3 do
       tex.sprint("&")
       if j == 3 then
