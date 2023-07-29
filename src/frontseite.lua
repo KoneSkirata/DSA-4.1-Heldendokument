@@ -174,7 +174,7 @@ function eigenschaften.rechts(self)
     tex.sprint(-2, data:formula(e))
     for _, v in ipairs(data.Mirakel.Plus) do
       if v == e then
-        tex.sprint([[\scriptsize \faPlusCircle \:]])
+        tex.sprint([[\: \scriptsize \faPlusCircle]])
         break
       end
     end
