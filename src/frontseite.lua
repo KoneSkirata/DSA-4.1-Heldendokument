@@ -14,9 +14,9 @@ end
 local held_basis = {
   labels = {
     Name="Name", GP="GP-Basis", Rasse="Rasse", Kultur="Kultur", Profession="Profession",
-    Geschlecht="Geschlecht", Tsatag="Tsatag", Groesse="Größe",
-    Gewicht="Gewicht", Haarfarbe="Haarfarbe", Augenfarbe="Augenfarbe",
-    Stand="Stand", Sozialstatus="Sozialstatus", Titel="Titel"
+    Geschlecht="Geschlecht", Tsatag="Tsatag", Groesse="Größe", Gewicht="Gewicht",
+    Haarfarbe="Haarfarbe", Augenfarbe="Augenfarbe", Aussehen="Aussehen", Stand="Stand",
+    Sozialstatus="Sozialstatus", Titel="Titel", Hintergrund="Hintergrund"
   }
 }
 
@@ -49,10 +49,14 @@ function held_basis.links(self)
     tex.sprint("&")
     tex.sprint(-2, data.Held[n])
   end
+  tex.sprint([[\\ \hline]])
+  common.multiline_content({
+    name="Aussehen", rows=4, cols=2, col=[[p{.9\textwidth}]], baselinestretch=1.35,
+    preamble=self.labels["Aussehen"], hspace="26.92pt"}, data.Held.Aussehen)
 end
 
 function held_basis.rechts(self)
-  for i,n in ipairs({"Stand", "Sozialstatus"}) do
+  for i,n in ipairs({"Stand", "Titel", "Sozialstatus"}) do
     if i ~= 1 then
       tex.sprint([[\\ \hline]])
     end
@@ -62,8 +66,8 @@ function held_basis.rechts(self)
   end
   tex.sprint([[\\ \hline]])
   common.multiline_content({
-    name="Titel", rows=4, cols=2, col=[[p{.9\textwidth}]], baselinestretch=1.35,
-    preamble=self.labels["Titel"], hspace="54.92pt"}, data.Held.Titel)
+    name="Hintergrund", rows=7, cols=2, col=[[p{.9\textwidth}]], baselinestretch=1.35,
+    preamble=self.labels["Hintergrund"], hspace="54.92pt"})
 end
 
 frontseite.held = held_basis

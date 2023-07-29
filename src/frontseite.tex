@@ -12,33 +12,30 @@
     \end{tabular}
 \end{dsaSheetBox}
 
-\vspace{-8pt}
-\begin{multicols}{2}
-\begin{dsaSheetBox}[.5\textwidth-.5\columnsep]
-    \begin{tabular}{p{2.3cm}p{\dimexpr\textwidth-4\tabcolsep-2.3cm}}
-        \directlua{frontseite.held:links()}
-    \end{tabular}
-\end{dsaSheetBox}%
-
-\columnbreak%
-\begin{dsaSheetBox}[.5\textwidth-.5\columnsep]
-
-    \begin{tabular}{p{2.5cm}p{\dimexpr\textwidth-4\tabcolsep-2.5cm}}
-        \directlua{frontseite.held:rechts()}
-    \end{tabular}
-\end{dsaSheetBox}%
-\end{multicols}
-\vspace{-12pt}
-
-\begin{dsaSheetBox}[\textwidth]
-    \begin{tabular}{p{\dimexpr\textwidth-2\tabcolsep}}
-        \directlua{common.multiline_content({
-            name="Aussehen", rows=common.current_page.Aussehen,
-            baselinestretch=1.35, preamble="Aussehen",
-            hspace="10pt"}, data.Held.Aussehen)
-        }
-    \end{tabular}
-\end{dsaSheetBox}%
+\vspace{-1pt}
+\begin{minipage}[t]{0.38\textwidth-.5\columnsep}
+    \begin{dsaSheetBox}
+        \begin{tabular}{p{2.3cm}p{\dimexpr\textwidth-4\tabcolsep-2.3cm}}
+            \directlua{frontseite.held:links()}
+        \end{tabular}%
+    \end{dsaSheetBox}%
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.24\textwidth-.5\columnsep}
+    \begin{dsaSheetBox}
+        \begin{tabular}{p{\dimexpr\textwidth-2\tabcolsep}}
+            \directlua{common.multiline_content({name=" ", rows=10, baselinestretch=1.35})}
+        \end{tabular}
+    \end{dsaSheetBox}%
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.38\textwidth-.5\columnsep}
+    \begin{dsaSheetBox}
+        \begin{tabular}{p{2.5cm}p{\dimexpr\textwidth-4\tabcolsep-2.5cm}}
+            \directlua{frontseite.held:rechts()}
+        \end{tabular}
+    \end{dsaSheetBox}%
+\end{minipage}
 
 \vspace{-8pt}
 \begin{multicols}{2}
@@ -55,7 +52,7 @@
         \end{tabular}
     \end{dsaSheetBox}
 
-\columnbreak
+    \columnbreak
 
     \dsaHeading{Nachteile}
     \vspace{-12pt}
