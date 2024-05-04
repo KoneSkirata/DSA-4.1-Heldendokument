@@ -56,9 +56,9 @@ local Liturgiebogen = d.Record:def({name = "Liturgiebogen", description = "Bogen
   {"Kleidung", Zeilen, 5},
   {"Liturgien", Zeilen, 24},
   {"Gegenstaende", Zeilen, 29},
-  {"ProviantVermoegen", d.Record:def({name = "ProviantVermoegen", description = "Zeilen für Proviant & Vermögen Box."}, {"Gezaehlt", Zeilen, 4}, {"Sonstiges", Zeilen, 5}), {}},
-  {"VerbindungenNotizen", Zeilen, 9},
-  {"Tiere", Zeilen, 4})
+  {"ProviantVermoegen", d.Record:def({name = "ProviantVermoegen", description = "Zeilen für Proviant & Vermögen Box."}, {"Gezaehlt", Zeilen, 8}, {"Sonstiges", Zeilen, 3}), {}},
+  {"VerbindungenNotizen", Zeilen, 11},
+  {"Tiere", Zeilen, 2})
 
 local Zauberdokument = d.Record:def({name = "Zauberdokument", description = "Zauberdokument."},
   {"VorUndNachteile", Zeilen, 5},
