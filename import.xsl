@@ -4,16 +4,16 @@
     xmlns:func="http://exslt.org/functions"
     xmlns:dsa="https://flyx.org/dsa-4.1-heldendokument"
     extension-element-prefixes="exslt func">
-  <xsl:param name="sf_zeilen" as="xs:integer" select="6"/>
+  <xsl:param name="sf_zeilen" as="xs:integer" select="3"/>
   <xsl:param name="min_gaben" as="xs:integer" select="2"/>
   <xsl:param name="min_begabungen" as="xs:integer" select="0"/>
-  <xsl:param name="min_kampf" as="xs:integer" select="12"/>
+  <xsl:param name="min_kampf" as="xs:integer" select="11"/>
   <xsl:param name="min_koerper" as="xs:integer" select="17"/>
-  <xsl:param name="min_gesellschaft" as="xs:integer" select="10"/>
-  <xsl:param name="min_natur" as="xs:integer" select="10"/>
-  <xsl:param name="min_wissen" as="xs:integer" select="16"/>
-  <xsl:param name="min_sprachen" as="xs:integer" select="10"/>
-  <xsl:param name="min_handwerk" as="xs:integer" select="13"/>
+  <xsl:param name="min_gesellschaft" as="xs:integer" select="16"/>
+  <xsl:param name="min_natur" as="xs:integer" select="7"/>
+  <xsl:param name="min_wissen" as="xs:integer" select="13"/>
+  <xsl:param name="min_sprachen" as="xs:integer" select="15"/>
+  <xsl:param name="min_handwerk" as="xs:integer" select="16"/>
   <xsl:param name="min_waffen_nk" as="xs:integer" select="5"/>
   <xsl:param name="min_waffen_fk" as="xs:integer" select="3"/>
   <xsl:param name="min_schilde" as="xs:integer" select="2"/>
