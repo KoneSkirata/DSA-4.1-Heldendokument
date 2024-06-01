@@ -80,28 +80,28 @@
 }
 
 \newcommand{\ProvVermoeg}{
-\begin{dsaSheetBox}[.5\textwidth-.5\columnsep]
-    \renewcommand{\arraystretch}{1}
-    \setlength{\tabcolsep}{1pt}
-    \normalfont\fontsize{8}{12}\selectfont
-    \begin{tabular}{p{4.5cm}|x{0.8cm}!{\vrule width 1pt}p{2.6cm}|x{0.7cm}}
-        \multicolumn{2}{l}{\dsaTHeading{\Large Proviant / Tränke}} & \multicolumn{2}{l}{\dsaTHeading{\Large Vermögen}} \\ \hline
-        \directlua{
-            common.proviant_vermoegen()
-        } \\\hline
-    \end{tabular}
+    \begin{dsaSheetBox}[.5\textwidth-.5\columnsep]
+        \renewcommand{\arraystretch}{1}
+        \setlength{\tabcolsep}{1pt}
+        \normalfont\fontsize{8}{12}\selectfont
+        \begin{tabular}{p{4.5cm}|x{0.8cm}!{\vrule width 1pt}p{2.6cm}|x{0.7cm}}
+            \multicolumn{2}{l}{\dsaTHeading{\Large Proviant / Tränke}} & \multicolumn{2}{l}{\dsaTHeading{\Large Vermögen}} \\\hline
+            \directlua{
+                common.proviant_vermoegen()
+            } \\\hline
+        \end{tabular}
 
-    \vspace{-1pt}
-    \begin{tabular}{p{\textwidth-1.33\tabcolsep}}
-        \directlua{
-            common.multiline_content({
-                name="Vermögen", rows=common.current_page.ProviantVermoegen.Sonstiges,
-                preamble="\noexpand\\footnotesize Sonstiges", hspace="5pt",
-                baselinestretch=1.033, fontsize={8,12}
-            }, data.Vermoegen.Sonstiges)
-        }
-    \end{tabular}
-\end{dsaSheetBox}
+        \vspace{-1pt}
+        \begin{tabular}{p{\textwidth-1.33\tabcolsep}}
+            \directlua{
+                common.multiline_content({
+                    name="Vermögen", rows=common.current_page.ProviantVermoegen.Sonstiges,
+                    preamble="\noexpand\\footnotesize Sonstiges", hspace="5pt",
+                    baselinestretch=1.033, fontsize={8,12}
+                }, data.Vermoegen.Sonstiges)
+            }
+        \end{tabular}
+    \end{dsaSheetBox}
 }
 
 \newcommand{\Verbindungen}{
@@ -133,16 +133,12 @@
 }
 
 \newcommand{\VerbindNotiz}{
-    \begin{dsaSheetBox}[.5\textwidth-.5\columnsep]
-        \renewcommand{\arraystretch}{1}
-        \setlength{\tabcolsep}{1pt}
-        \normalfont\fontsize{8}{12}\selectfont
-        \vspace{2.41pt}
+    \begin{dsaSheetBox}
         \begin{tabular}{p{\textwidth-1.33\tabcolsep}}
-            \dsaTHeading{\Large Verbindungen \& Notizen} \\ \hline
             \directlua{
                 common.multiline_content({
                     name="Verbindungen und Notizen", rows=common.current_page.VerbindungenNotizen,
+                    preamble="\noexpand\\Large Verbindungen \\& Notizen", hspace="5pt",
                     baselinestretch=1.033, fontsize={8,12}
                 }, data.Verbindungen, data.Notizen)
             }
