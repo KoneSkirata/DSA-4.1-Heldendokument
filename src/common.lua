@@ -414,11 +414,22 @@ end
 
 function common.proviant_vermoegen()
   local content = {}
+
+  print("Die gesamten Listen:")
+  print("=== Proviant ===")
+  print(data.Proviant)
+  print("=== Vermoegen ===")
+  print(data.Vermoegen)
+
   for i=1,common.current_page.ProviantVermoegen.Gezaehlt do
       local l = {}
-      if data.Proviant[i][2] == nil or data.Proviant[i][2] == '' then
-        data.Proviant[i][2] = 0
-      end
+
+      print("Schleifendurchlauf " + i)
+      print("Proviant:")
+      print(data.Proviant[i])
+      print("Vermoegen:")
+      print(data.Vermoegen[i])
+
       merge(l, data.Proviant[i])
       merge(l, data.Vermoegen[i])
       table.insert(content, l)
