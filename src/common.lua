@@ -424,7 +424,7 @@ function common.proviant_vermoegen()
   for i=1,common.current_page.ProviantVermoegen.Gezaehlt do
       local l = {}
 
-      print("Schleifendurchlauf " + i)
+      print("Schleifendurchlauf " .. i)
       print("Proviant:")
       print(data.Proviant[i])
       print("Vermoegen:")
